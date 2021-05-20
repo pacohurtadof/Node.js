@@ -6,8 +6,9 @@ const mongoose = require('mongoose');
 
 const productRoutes = require ('./api/routes/products'); 
 const ordersRoutes = require ('./api/routes/orders'); 
+const userRoutes = require ('./api/routes/user'); 
 
-mongoose.connect("mongodb+srv://dbUser:"+env.MONGO_ATLAS_PW+ "@node-rest-shop.bjqp0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://dbUser:"+process.env.MONGO_ATLAS_PW+ "@node-rest-shop.bjqp0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     
     "useNewUrlParser": true,
     "useUnifiedTopology": true
@@ -18,6 +19,7 @@ mongoose.Promise = global.Promise;
 
 
 app.use(morgan('dev'));
+app.use('/uploads/', express.static('uploads'))
 app.use(express.urlencoded({extended: false})) //aqui iba bodyparser.urlencoded pero ya es deprecated, se incluyo en express
 app.use(express.json())
 
@@ -38,6 +40,7 @@ app.use((req, res, next) => {
 //Routes which should handle requests
 app.use('/products', productRoutes); //middleware. Toma el primer argumento (la ruta) como filtro
 app.use('/orders', ordersRoutes); //middleware. Toma el primer argumento (la ruta) como filtro
+app.use('/user', userRoutes); //middleware. Toma el primer argumento (la ruta) como filtro
 
 
 //for all errors
