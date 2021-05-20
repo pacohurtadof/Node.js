@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const productRoutes = require ('./api/routes/products'); 
 const ordersRoutes = require ('./api/routes/orders'); 
 
-mongoose.connect("mongodb+srv://dbUser:dbUser@node-rest-shop.bjqp0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://dbUser:"+env.MONGO_ATLAS_PW+ "@node-rest-shop.bjqp0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     
     "useNewUrlParser": true,
     "useUnifiedTopology": true

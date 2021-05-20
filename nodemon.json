@@ -1,5 +1,5 @@
 {
     "env" : {
-        "MONGO_ATLAS_PW" : "mongodb+srv://dbUser:<password>@node-rest-shop.bjqp0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        "MONGO_ATLAS_PW" : "dbUser"
     }
 }
