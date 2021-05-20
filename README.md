@@ -1,2 +1,2 @@
 # Node.js
-Practice code
+Practice code. Remember to add nodemon.json for the MongoDB URI.
